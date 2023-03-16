@@ -1,0 +1,22 @@
+GET http://localhost:8080/books/0-679-77543-9
+Accept: application/json
+
+###
+PUT http://localhost:8080/books/0-679-77543-9
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "The Wind-Up Bird Chronicle",
+  "publicationYear": 1997,
+  "authors": [
+    {
+      "name": "Haruki",
+      "surname": "Murakami"
+    }
+  ]
+}
+
+###
+DELETE http://localhost:8080/books/0-679-77543-9
+Accept: application/json
