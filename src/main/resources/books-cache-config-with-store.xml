@@ -1,0 +1,9 @@
+<distributed-cache>
+    <encoding media-type="application/x-protostream"/>
+    <persistence passivation="false">
+        <mongodbStore xmlns="urn:infinispan:config:mongodb-store:14.0">
+            <connection uri="mongodb://mongo:27017"
+                        collection="books"/>
+        </mongodbStore>
+    </persistence>
+</distributed-cache>

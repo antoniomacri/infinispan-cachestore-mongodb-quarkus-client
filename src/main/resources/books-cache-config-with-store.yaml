@@ -1,0 +1,9 @@
+distributedCache:
+  encoding:
+    mediaType: "application/x-protostream"
+  persistence:
+    passivation: "false"
+    mongodb-store:
+      connection:
+        uri: "mongodb://mongo:27017"
+        collection: "books"
