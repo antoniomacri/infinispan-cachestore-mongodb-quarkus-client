@@ -10,9 +10,10 @@ import java.util.Map;
 
 @QuarkusTest
 @TestProfile(BooksResourceYamlConfigWithMongoTest.TestProfile.class)
-@QuarkusTestResource(value = InfinispanTestResource.class, restrictToAnnotatedClass = true,
-        initArgs = @ResourceArg(name = InfinispanTestResource.LOCAL_ARTIFACTS_ARG, value = "../infinispan-cachestore-mongodb/target/infinispan-cachestore-mongodb-14.0.8-SNAPSHOT.jar")
-)
+@QuarkusTestResource(value = InfinispanTestResource.class, restrictToAnnotatedClass = true, initArgs = {
+        @ResourceArg(name = InfinispanTestResource.LOCAL_ARTIFACTS_ARG, value = "../infinispan-cachestore-mongodb/target/infinispan-cachestore-mongodb-14.0.8-SNAPSHOT.jar"),
+        @ResourceArg(name = InfinispanTestResource.ARTIFACTS_ARG, value = "org.mongodb:mongodb-driver-reactivestreams:4.9.0,org.mongodb:mongodb-driver-core:4.9.0"),
+})
 public class BooksResourceYamlConfigWithMongoTest extends BooksResourceTest {
     public static class TestProfile implements QuarkusTestProfile {
         @Override

@@ -2,7 +2,7 @@
     <encoding media-type="application/x-protostream"/>
     <persistence passivation="false">
         <mongodbStore xmlns="urn:infinispan:config:mongodb-store:14.0">
-            <connection uri="mongodb://mongo:27017"
+            <connection uri="mongodb://mongo:27017/mydb"
                         collection="books"/>
         </mongodbStore>
     </persistence>
