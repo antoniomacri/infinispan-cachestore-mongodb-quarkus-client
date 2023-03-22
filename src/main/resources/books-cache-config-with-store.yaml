@@ -5,5 +5,5 @@ distributedCache:
     passivation: "false"
     mongodb-store:
       connection:
-        uri: "mongodb://mongo:27017/mydb"
+        uri: "mongodb://${env.MONGODB_HOST_PORT}/mydb"
         collection: "books"
