@@ -7,10 +7,7 @@ import org.infinispan.protostream.annotations.ProtoField;
 
 import java.util.Objects;
 
-public class Author {
-    private final String name;
-    private final String surname;
-
+public record Author(String name, String surname) {
     @JsonCreator
     @ProtoFactory
     public Author(
@@ -21,13 +18,15 @@ public class Author {
         this.surname = Objects.requireNonNull(surname);
     }
 
+    @Override
     @ProtoField(number = 1)
-    public String getName() {
+    public String name() {
         return name;
     }
 
+    @Override
     @ProtoField(number = 2)
-    public String getSurname() {
+    public String surname() {
         return surname;
     }
 }

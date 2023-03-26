@@ -8,12 +8,7 @@ import org.infinispan.protostream.annotations.ProtoField;
 import java.util.Objects;
 import java.util.Set;
 
-public class Book {
-    private final String title;
-    private final String description;
-    private final int publicationYear;
-    private final Set<Author> authors;
-
+public record Book(String title, String description, int publicationYear, Set<Author> authors) {
     @JsonCreator
     @ProtoFactory
     public Book(
@@ -28,23 +23,27 @@ public class Book {
         this.authors = Objects.requireNonNull(authors);
     }
 
+    @Override
     @ProtoField(number = 1)
-    public String getTitle() {
+    public String title() {
         return title;
     }
 
+    @Override
     @ProtoField(number = 2)
-    public String getDescription() {
+    public String description() {
         return description;
     }
 
+    @Override
     @ProtoField(number = 3, defaultValue = "-1")
-    public int getPublicationYear() {
+    public int publicationYear() {
         return publicationYear;
     }
 
+    @Override
     @ProtoField(number = 4)
-    public Set<Author> getAuthors() {
+    public Set<Author> authors() {
         return authors;
     }
 }
