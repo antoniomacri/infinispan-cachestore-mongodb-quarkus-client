@@ -5,6 +5,7 @@ import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
 import org.infinispan.client.hotrod.impl.ConfigurationProperties;
 import org.infinispan.commons.util.Version;
 import org.infinispan.server.test.core.InfinispanContainer;
+import org.infinispan.server.test.core.JBossLoggingConsumer;
 import org.jboss.logging.Logger;
 import org.testcontainers.containers.BindMode;
 import org.testcontainers.containers.MongoDBContainer;
@@ -103,6 +104,7 @@ public class InfinispanTestResource implements QuarkusTestResourceLifecycleManag
         LOGGER.infof("Starting Infinispan Server %s on port %s with user %s and password %s", Version.getMajorMinor(),
                 HOTROD_PORT, USER, PASSWORD);
         INFINISPAN.start();
+        INFINISPAN.followOutput(new JBossLoggingConsumer(LOGGER));
 
         return INFINISPAN.getHost() + ":" + INFINISPAN.getMappedPort(HOTROD_PORT);
     }
