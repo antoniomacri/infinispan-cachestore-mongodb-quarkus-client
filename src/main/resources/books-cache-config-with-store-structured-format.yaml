@@ -4,7 +4,7 @@ distributedCache:
   persistence:
     passivation: "false"
     mongodb-store:
-      converter: json
       connection:
         uri: "mongodb://${env.MONGODB_HOST_PORT}/mydb"
         collection: "books"
+      format: structured

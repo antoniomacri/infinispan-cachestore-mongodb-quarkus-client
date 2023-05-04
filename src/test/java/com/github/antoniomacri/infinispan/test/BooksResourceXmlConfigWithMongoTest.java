@@ -11,7 +11,7 @@ import java.util.Map;
 @QuarkusTest
 @TestProfile(BooksResourceXmlConfigWithMongoTest.TestProfile.class)
 @QuarkusTestResource(value = InfinispanTestResource.class, restrictToAnnotatedClass = true, initArgs = {
-        @ResourceArg(name = InfinispanTestResource.LOCAL_ARTIFACTS_ARG, value = "../infinispan-cachestore-mongodb/target/infinispan-cachestore-mongodb-14.0.8-SNAPSHOT.jar"),
+        @ResourceArg(name = InfinispanTestResource.LOCAL_ARTIFACTS_ARG, value = "../infinispan-cachestore-mongodb/target/infinispan-cachestore-mongodb-15.0.0-SNAPSHOT.jar"),
         @ResourceArg(name = InfinispanTestResource.ARTIFACTS_ARG, value = "org.mongodb:mongodb-driver-reactivestreams:4.9.0,org.mongodb:mongodb-driver-core:4.9.0,org.mongodb:bson:4.9.0"),
         @ResourceArg(name = InfinispanTestResource.START_MONGO_ARG, value = "true"),
 })

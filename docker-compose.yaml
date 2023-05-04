@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  infinispan-member-1:
+    container_name: infinispan-member-1
+    image: quay.io/infinispan/server:14.0
+    ports:
+      - "11222:11222"
+    volumes:
+      - "../infinispan-cachestore-mongodb/target/infinispan-cachestore-mongodb-15.0.0-SNAPSHOT.jar:/opt/infinispan/server/lib/mongodb-store.jar"
+    environment:
+      USER: "admin"
+      PASS: "password"
+      SERVER_LIBS: "org.mongodb:mongodb-driver-reactivestreams:4.9.0 org.mongodb:mongodb-driver-core:4.9.0 org.mongodb:bson:4.9.0"
+      MONGODB_HOST_PORT: "mongo:27017"
+
+  infinispan-member-2:
+    container_name: infinispan-member-2
+    image: quay.io/infinispan/server:14.0
+    ports:
+      - "11223:11222"
+    volumes:
+      - "../infinispan-cachestore-mongodb/target/infinispan-cachestore-mongodb-15.0.0-SNAPSHOT.jar:/opt/infinispan/server/lib/mongodb-store.jar"
+    environment:
+      USER: "admin"
+      PASS: "password"
+      SERVER_LIBS: "org.mongodb:mongodb-driver-reactivestreams:4.9.0 org.mongodb:mongodb-driver-core:4.9.0 org.mongodb:bson:4.9.0"
+      MONGODB_HOST_PORT: "mongo:27017"

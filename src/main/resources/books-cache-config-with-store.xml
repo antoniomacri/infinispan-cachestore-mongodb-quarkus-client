@@ -1,9 +1,9 @@
 <distributed-cache>
     <encoding media-type="application/x-protostream"/>
     <persistence passivation="false">
-        <mongodbStore xmlns="urn:infinispan:config:mongodb-store:14.0">
+        <mongodb-store xmlns="urn:infinispan:config:mongodb-store:15.0">
             <connection uri="mongodb://${env.MONGODB_HOST_PORT}/mydb"
                         collection="books"/>
-        </mongodbStore>
+        </mongodb-store>
     </persistence>
 </distributed-cache>
